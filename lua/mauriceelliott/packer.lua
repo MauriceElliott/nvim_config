@@ -12,10 +12,10 @@ return require('packer').startup(function(use)
   	  	requires = { {'nvim-lua/plenary.nvim'} }
 	  }
 	  use({
-		'folke/tokyonight.nvim',
-		  as = 'tokyonight',
+		'scottmckendry/cyberdream.nvim',
+		  as = 'cyberdream',
 		  config = function()
-		 	vim.cmd('colorscheme tokyonight')
+		 	vim.cmd('colorscheme cyberdream')
 		  end
 	  })
     use {
@@ -41,7 +41,11 @@ return require('packer').startup(function(use)
         })
 
         -- remove trailing whitespace with a keybinding
-        vim.keymap.set('n', '<Leader>t', require('whitespace-nvim').trim)
+        vim.keymap.set('n', '<Leader>tw', require('whitespace-nvim').trim)
     end
-}
+    }
+    use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
 end)
