@@ -27,6 +27,5 @@ require("cyberdream").setup({
         telescope = true,
         notify = true,
         mini = true,
-        ...
     },
 })
