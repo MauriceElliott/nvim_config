@@ -18,6 +18,14 @@ return require('packer').startup(function(use)
 		 	vim.cmd('colorscheme cyberdream')
 		  end
 	  })
+--	  use({
+--		'xero/evangelion.nvim',
+--		  as = 'evangelion',
+--		  config = function()
+--		 	vim.cmd('colorscheme evangelion')
+--		  end
+--	  })
+
     use {
     'johnfrankmorgan/whitespace.nvim',
     config = function ()
