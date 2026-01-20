@@ -1,7 +1,0 @@
-require("mauriceelliott.remap")
-require("mauriceelliott.packer")
-require("mauriceelliott.settings")
-require("mauriceelliott.lualine")
-require("mauriceelliott.cyberdream")
---require("mauriceelliott.evangelion")
-require("mauriceelliott.lsp")
