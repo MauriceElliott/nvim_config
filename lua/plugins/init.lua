@@ -205,6 +205,7 @@ require("lazy").setup({
           "ts_ls",
           "clangd",
           "cssls",
+          "ols",
           -- "ols" and "sourcekit" may require manual install depending on platform
         },
         automatic_installation = true,
