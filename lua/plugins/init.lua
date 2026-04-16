@@ -155,6 +155,14 @@ require("lazy").setup({
     end,
   },
 
+  -- ── Comment ────────────────────────────────────────────────────────────
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+  },
+
   -- ── Treesitter ─────────────────────────────────────────────────────────
   -- Pinned to last commit before nvim 0.11 support was dropped
   {

@@ -26,3 +26,7 @@ map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Close buffer" })
 
 -- Neo-tree toggle
 map("n", "<leader>t", "<cmd>Neotree toggle<CR>", { desc = "Toggle file tree" })
+
+-- Comment toggle (Ctrl+c)
+map("n", "<C-c>", "gcc", { desc = "Toggle comment (line)" })
+map("v", "<C-c>", "gc", { desc = "Toggle comment (selection)" })
