@@ -163,6 +163,20 @@ require("lazy").setup({
     end,
   },
 
+  -- ── Multiple Cursors ───────────────────────────────────────────────────
+  {
+    "brenton-leighton/multiple-cursors.nvim",
+    version = "*",
+    opts = {},
+    keys = {
+      {"<S-c>", "<Cmd>MultipleCursorsAddDown<CR>", mode = {"n", "x"}, desc = "Add cursor below"},
+      {"<S-Up>", "<Cmd>MultipleCursorsAddUp<CR>", mode = {"n", "x"}, desc = "Add cursor above"},
+      {"<C-LeftMouse>", "<Cmd>MultipleCursorsMouseAddDelete<CR>", mode = {"n", "i"}, desc = "Add/remove cursor"},
+      {"<Leader>a", "<Cmd>MultipleCursorsAddMatches<CR>", mode = {"n", "x"}, desc = "Add cursors to word"},
+      {"<Leader>A", "<Cmd>MultipleCursorsLock<CR>", mode = {"n", "x"}, desc = "Lock cursors"},
+    },
+  },
+
   -- ── Treesitter ─────────────────────────────────────────────────────────
   -- Pinned to last commit before nvim 0.11 support was dropped
   {
