@@ -30,3 +30,6 @@ map("n", "<leader>t", "<cmd>Neotree toggle<CR>", { desc = "Toggle file tree" })
 -- Comment toggle (Ctrl+c)
 map("n", "<C-c>", "gcc", { desc = "Toggle comment (line)" })
 map("v", "<C-c>", "gc", { desc = "Toggle comment (selection)" })
+
+-- Map line select to X to work like helix
+map("n", "x", "V", { desc = "Select current line" })
