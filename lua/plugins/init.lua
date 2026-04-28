@@ -20,7 +20,6 @@ require("lazy").setup({
   -- ── Fuzzy Finder ───────────────────────────────────────────────────────
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.2.1",
     dependencies = {
       "nvim-lua/plenary.nvim",
       {
@@ -65,6 +64,51 @@ require("lazy").setup({
     end,
   },
 
+  {
+  "nvim-lualine/lualine.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    require("lualine").setup({
+      options = {
+        theme = "auto",  -- or wire your automata_night palette in manually
+        component_separators = { left = "", right = "" },
+        section_separators   = { left = "", right = "" },
+      },
+      sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_c = { { "filename", path = 1 } },
+        lualine_x = { "filetype" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
+      },
+    })
+  end,
+},
+{
+  "akinsho/bufferline.nvim",
+  version = "*",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    require("bufferline").setup({
+      options = {
+        separator_style     = "thin",
+        show_buffer_close_icons = false,
+        show_close_icon     = false,
+        diagnostics         = "nvim_lsp",
+      },
+    })
+  end,
+},
+{
+  "brenoprata10/nvim-highlight-colors",
+  event = "BufReadPre",
+  config = function()
+    require("nvim-highlight-colors").setup({
+      render = "background",
+    })
+  end,
+},
   -- ── File Sidebar ───────────────────────────────────────────────────────
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -337,6 +381,7 @@ require("lazy").setup({
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
@@ -402,6 +447,19 @@ require("lazy").setup({
           completion    = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
         },
+      })
+
+      cmp.setup.cmdline({ "/", "?" }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = { { name = "buffer" } },
+      })
+
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources(
+          { { name = "path" } },
+          { { name = "cmdline" } }
+        ),
       })
     end,
   },
