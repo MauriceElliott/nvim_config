@@ -185,7 +185,7 @@ require("lazy").setup({
     end,
   },
 
-  -- ── Comment ────────────────────────────────────────────────────────────
+  -- Comment 
   {
     "numToStr/Comment.nvim",
     config = function()
@@ -193,7 +193,16 @@ require("lazy").setup({
     end,
   },
 
-  -- ── Multiple Cursors ───────────────────────────────────────────────────
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,   desc = "Flash jump" },
+      { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash treesitter" },
+      { "r",     mode = "o",               function() require("flash").remote() end,  desc = "Remote flash" },
+    },
+  },
+  -- Multiple Cursors
   {
     "brenton-leighton/multiple-cursors.nvim",
     version = "*",
@@ -219,7 +228,7 @@ require("lazy").setup({
         "yaml", "toml", "go", "rust", "c", "cpp",
         "html", "javascript", "typescript", "json",
         "css", "bash", "lua", "vim", "vimdoc",
-        "powershell",
+        "powershell", "odin",
       })
 
       -- Enable treesitter highlighting + indentation via FileType autocmd
