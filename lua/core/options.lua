@@ -40,6 +40,19 @@ opt.undodir        = vim.fn.stdpath("data") .. "/undo"
 -- Completion
 opt.completeopt    = { "menu", "menuone", "noselect" }
 
+-- Clipboard (OSC 52 — works through WezTerm into Windows clipboard, no external tools needed)
+vim.g.clipboard = {
+  name  = "OSC 52",
+  copy  = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  paste = {
+    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+  },
+}
+
 -- Misc
 opt.mouse          = "a"
 opt.clipboard      = "unnamedplus"

@@ -103,7 +103,30 @@ require("lazy").setup({
       })
     end,
   },
-
+{
+  "lewis6991/gitsigns.nvim",
+  config = function()
+    require("gitsigns").setup({
+      signs = {
+        add    = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "" },
+      },
+      on_attach = function(bufnr)
+        local gs = package.loaded.gitsigns
+        local map = function(keys, fn, desc)
+          vim.keymap.set("n", keys, fn, { buffer = bufnr, desc = desc })
+        end
+        map("]h", gs.next_hunk,        "Next hunk")
+        map("[h", gs.prev_hunk,        "Prev hunk")
+        map("<leader>hs", gs.stage_hunk,   "Stage hunk")
+        map("<leader>hr", gs.reset_hunk,   "Reset hunk")
+        map("<leader>hp", gs.preview_hunk, "Preview hunk")
+        map("<leader>hb", function() gs.blame_line({ full = true }) end, "Blame line")
+      end,
+    })
+  end,
+},
   -- ── Which-key ──────────────────────────────────────────────────────────
   {
     "folke/which-key.nvim",
@@ -144,6 +167,13 @@ require("lazy").setup({
         { "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, desc = "Format" },
         { "<leader>lk", vim.lsp.buf.hover,                     desc = "Hover docs" },
         { "<leader>li", vim.lsp.buf.implementation,            desc = "Implementation" },
+
+        -- Git hunks group
+        { "<leader>h",  group = "Git hunks" },
+        { "<leader>hs", function() require("gitsigns").stage_hunk() end,                    desc = "Stage hunk" },
+        { "<leader>hr", function() require("gitsigns").reset_hunk() end,                    desc = "Reset hunk" },
+        { "<leader>hp", function() require("gitsigns").preview_hunk() end,                  desc = "Preview hunk" },
+        { "<leader>hb", function() require("gitsigns").blame_line({ full = true }) end,     desc = "Blame line" },
 
         -- Diagnostics group
         { "<leader>d",  group = "Diagnostics" },
