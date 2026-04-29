@@ -9,7 +9,7 @@ return {
         "yaml", "toml", "go", "rust", "c", "cpp",
         "html", "javascript", "typescript", "json",
         "css", "bash", "lua", "vim", "vimdoc",
-        "powershell", "odin",
+        "powershell", "odin", "hcl", "terraform",
       })
 
       -- Enable treesitter highlighting + indentation via FileType autocmd
