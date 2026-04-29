@@ -28,8 +28,8 @@ map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Close buffer" })
 map("n", "<leader>t", "<cmd>Neotree toggle<CR>", { desc = "Toggle file tree" })
 
 -- Comment toggle (Ctrl+c)
-map("n", "<C-c>", "gcc", { desc = "Toggle comment (line)" })
-map("v", "<C-c>", "gc", { desc = "Toggle comment (selection)" })
+map("n", "<C-c>", "gcc", { desc = "Toggle comment (line)",      remap = true })
+map("v", "<C-c>", "gc",  { desc = "Toggle comment (selection)", remap = true })
 
 -- Map line select to X to work like helix
 map("n", "x", "V", { desc = "Select current line" })
